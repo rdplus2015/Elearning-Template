@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
@@ -15,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('main.home');
-});
+// main and auth
+
+Route::get('/', 'MainController@home')->name('/');
 
 Auth::routes();
 
@@ -29,3 +30,10 @@ Route::get('/logout', function(){
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// instructor
+
+Route::get('/instructor/overview', 'InstructorController@index') -> name('instructor.index');
+Route::get('/instructor/new', 'InstructorController@create') -> name('instructor.create');
+Route::post('/instructor/store', 'InstructorController@store')-> name('instructor.store');
+Route::get('instructor/{id}/edit', 'InstructorController@edit') -> name('instructor.edit');

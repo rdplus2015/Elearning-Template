@@ -88,8 +88,8 @@
                 <li>
                     <div class="d-flex justify-content-between py-3 px-3">
                         <div class="user-infos">
-                            <p>Utilisateur</p>
-                            <small>utilisateur@email.com</small>
+                            <p> {{ auth::user()->name }} : connecté <span class="fas fa-circle text-success"></span> </p>
+                            <small> {{auth::user()->email }} </small>
                         </div>
                     </div>
                 </li>
