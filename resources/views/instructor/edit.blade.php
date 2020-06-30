@@ -6,7 +6,9 @@
     <div class="container">
         <div class="d-flex justify-content-center">
             <div class="col-lg-8">
-                <form action="#" class="comment-form contact-form" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('instructor.update', $course -> id) }}" class="comment-form contact-form" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('put')
                     <div class="row">
                         <div class="col-lg-12">
                             <label for="title">Titre du cours</label>
@@ -23,7 +25,7 @@
                         <div class="col-lg-12">
                             <select class="form-control" name="category">
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category -> id }}">
+                                    <option value="{{ $category -> id }}" {{ $course -> category_id == $category -> id ? 'selected' : '' }}>
                                         {{ $category -> name }}
                                     </option>
                                 @endforeach

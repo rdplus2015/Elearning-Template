@@ -37,3 +37,5 @@ Route::get('/instructor/overview', 'InstructorController@index') -> name('instru
 Route::get('/instructor/new', 'InstructorController@create') -> name('instructor.create');
 Route::post('/instructor/store', 'InstructorController@store')-> name('instructor.store');
 Route::get('instructor/{id}/edit', 'InstructorController@edit') -> name('instructor.edit');
+Route::put('instructor/{id}/update', 'InstructorController@update') -> name('instructor.update');
+Route::get('instructor/{id}/destroy', 'InstructorController@destroy') -> name('instructor.destroy');

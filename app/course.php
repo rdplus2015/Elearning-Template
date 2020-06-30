@@ -10,6 +10,7 @@ class course extends Model
    {
     return $this->belongsTo('App\category');
    }
+   
    public function user()
    {
        return $this -> belongsTo('App\user');

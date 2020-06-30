@@ -18,26 +18,26 @@
         </div>
         <div>
             @if (count(Auth::user()-> courses) > 0 )
-                @foreach ( Auth::user()-> courses as $course)
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="card-body">
-                                <div class="bi-text">
-                                    <h5><a class="btn font-weight-bold" href="#"> {{ $course -> title }}</a></h5>
-                                    <span><i class="fa fa-clock-o"></i> {{ $course -> created_at }}</span>
+                        @foreach ( Auth::user()-> courses as $course)
+                            <div class="col-md-4">
+                                <div class="card-body">
+                                    <div class="bi-text">
+                                        <h5><a class="btn font-weight-bold" href="#"> {{ $course -> title }}</a></h5>
+                                        <span><i class="fa fa-clock-o"></i> {{ $course -> created_at }}</span>
+                                    </div>
+                                </div>
+                                <div class="blog-item set-bg" data-setbg="/storage/courses/{{ $course -> user_id }}/{{ $course -> image }}">
+                                </div>
+                                <div class="btn-actions d-flex justify-content-center">
+                                    <a href="{{ route('instructor.edit',$course ->id) }}" class="primary-btn">
+                                        <i class="fas fa-edit"></i>
+                                        Modifier
+                                    </a>
                                 </div>
                             </div>
-                            <div class="blog-item set-bg" data-setbg="/storage/courses/{{ $course -> user_id }}/{{ $course -> image }}">
-                            </div>
-                            <div class="btn-actions d-flex justify-content-center">
-                                <a href="{{ route('instructor.edit',$course ->id) }}" class="primary-btn">
-                                    <i class="fas fa-edit"></i>
-                                    Modifier
-                                </a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
-                @endforeach
             @endif
         </div>        
     </div>
